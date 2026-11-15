@@ -1,49 +1,49 @@
-## About this project
+# Piraeus Music Forum
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A music community in Piraeus, Greece located just at the center of the meat market.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Piraeus Music Forum is a community-focused music platform based in Piraeus, the port of
+Athens. It brings local musicians and listeners together to discover artists, share music, and
+participate in the local music scene.
 
-## Learning Laravel
+Artists can showcase their tracks for the community, while members can explore music
+and learn through community-provided lessons. The forum gives people a place to share instrument
+listings, announce gatherings, and organize open jams.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## What the project aims to offer
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Artist track showcases:** A place for artists to share music with the Piraeus community and local broadcasters.
+- **Community lessons:** Learning resources and lessons contributed by members of the music community.
+- **Music forum:** Community posts for instruments, local gatherings, open jams, and related activities.
+- **Community profiles:** Accounts and dashboards for participating artists and members.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Built with
 
-## Laravel Sponsors
+- Laravel 10
+- PHP 8.1+
+- Blade, Alpine.js, and Tailwind CSS
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Local development
 
-### Premium Partners
+Install PHP and JavaScript dependencies, configure the environment, and run migrations:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```powershell
+composer install
+Copy-Item .env.example .env
+php artisan key:generate
+php artisan migrate
+npm install
+npm run dev
+```
 
-## Contributing
+In another terminal, start the Laravel development server:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```powershell
+php artisan serve
+```
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Configure the database and other services in `.env` before running the application.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project uses the MIT license.
