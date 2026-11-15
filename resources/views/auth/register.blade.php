@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
         <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg text-gray-900">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-600 text-white">♪</span>
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-community-ochre text-community-ink">♪</span>
             <span>Bandcamp Streamer</span>
         </a>
         <h1 class="mt-4 text-xl font-bold text-gray-900">Create your account</h1>
@@ -46,7 +46,7 @@
 
         <!-- Submit -->
         <div class="my-6">
-            <x-primary-button class="w-full justify-center bg-red-600 hover:bg-red-700 focus:ring-red-500">
+            <x-primary-button class="w-full justify-center bg-community-ochre text-community-ink hover:bg-community-ochre-hover focus:ring-community-ochre">
                 {{ __('Register') }}
             </x-primary-button>
         </div>
@@ -54,7 +54,7 @@
         <!-- Login link -->
         <p class="text-center text-sm text-gray-600">
             Already registered?
-            <a href="{{ route('login') }}" class="font-semibold text-red-600 hover:text-red-700">
+            <a href="{{ route('login') }}" class="font-semibold text-community-ochre-dark hover:text-community-ink">
                 Log in
             </a>
         </p>

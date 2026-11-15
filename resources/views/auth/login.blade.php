@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
         <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg text-gray-900">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-600 text-white">♪</span>
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-community-ochre text-community-ink">♪</span>
             <span>Bandcamp Streamer</span>
         </a>
         <h1 class="mt-4 text-xl font-bold text-gray-900">Welcome back</h1>
@@ -27,7 +27,7 @@
         <div class="flex items-center justify-between my-6">
             <x-input-label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
-                    class="rounded border-gray-300 text-red-600 shadow-sm focus:ring-red-500"
+                    class="rounded border-gray-300 text-community-ochre-dark shadow-sm focus:ring-community-ochre"
                     name="remember">
                 <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
             </x-input-label>
@@ -38,13 +38,13 @@
             </a>
             @endif
         </div>
-        <x-primary-button class="w-full justify-center bg-red-600 hover:bg-red-700 focus:ring-red-500">
+        <x-primary-button class="w-full justify-center bg-community-ochre text-community-ink hover:bg-community-ochre-hover focus:ring-community-ochre">
             {{ __('Log in') }}
         </x-primary-button>
         @if (Route::has('register'))
         <p class="text-center text-sm text-gray-600 mt-3">
             No account?
-            <a href="{{ route('register') }}" class="font-semibold text-red-600 hover:text-red-700">
+            <a href="{{ route('register') }}" class="font-semibold text-community-ochre-dark hover:text-community-ink">
                 Create one
             </a>
         </p>

@@ -12,8 +12,21 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                community: {
+                    ink: '#182723',
+                    'ink-hover': '#1f302b',
+                    'ink-deep': '#111b18',
+                    'ink-panel': '#24332e',
+                    ochre: '#e5b64f',
+                    'ochre-hover': '#d7a93f',
+                    'ochre-dark': '#80600f',
+                },
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: [ '',   'Figtree', ...defaultTheme.fontFamily.sans],
+                mono: ['DM Mono', ...defaultTheme.fontFamily.mono],
+                display: ['Instrument Serif', ...defaultTheme.fontFamily.serif],
             },
         },
     },
