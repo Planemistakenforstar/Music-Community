@@ -6,6 +6,7 @@ use App\Http\Controllers\CookieConsentController;
 use App\Http\Controllers\User\BandcampArtistController;
 use App\Http\Controllers\User\ForumController;
 use App\Http\Controllers\User\LessonsController;
+use App\Models\Track;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    $tracks = Track::clearedForAirplay()
+        ->with('artist')
+        ->latest()
+        ->take(6)
+        ->get();
+
+    return view('welcome', compact('tracks'));
 });
 
 Route::post('/cookie-consent', [CookieConsentController::class, 'store'])
