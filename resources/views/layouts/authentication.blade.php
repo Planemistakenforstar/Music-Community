@@ -57,5 +57,6 @@
             </div>
         </main>
         @livewireScriptConfig
+        <x-cookie-consent />
     </body>
 </html>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackController;
+use App\Http\Controllers\CookieConsentController;
 use App\Http\Controllers\User\BandcampArtistController;
 use App\Http\Controllers\User\ForumController;
 use App\Http\Controllers\User\LessonsController;
@@ -21,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/cookie-consent', [CookieConsentController::class, 'store'])
+    ->middleware('throttle:30,1')
+    ->name('cookie-consent.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
