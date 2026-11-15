@@ -28,7 +28,7 @@ Route::get('/home', function () {
         ->get();
 
     return view('welcome', compact('tracks'));
-});
+})->name('home');
 
 Route::post('/cookie-consent', [CookieConsentController::class, 'store'])
     ->middleware('throttle:30,1')
