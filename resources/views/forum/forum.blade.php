@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-6xl px-5 sm:px-8">
             <p class="text-xs uppercase tracking-[0.18em] text-community-ochre-dark">Piraeus music community</p>
             <h1 class="font-display mt-3 text-4xl text-community-ink sm:text-5xl">The forum</h1>
 

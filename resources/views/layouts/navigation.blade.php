@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-[#f1ecdf] border-b border-[#182723]/20 font-mono text-[#182723]">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -11,20 +11,19 @@
                 </div>
 
 
-                @if(isset(Auth::user()->name) && Auth::user()->isArtist() === true)
-                <!-- Navigation Links -->
                 <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('DASHBOARD') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('forum')" :active="request()->routeIs('forum')">
-                        {{ __('FORUM') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('lessons')" :active="request()->routeIs('lessons')">
-                        {{ __('LESSONS') }}
-                    </x-nav-link>
+                    @include('layouts.primary-links', [
+                        'containerClass' => 'flex items-center space-x-6',
+                        'linkClass' => 'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none',
+                        'activeClass' => 'border-community-ochre text-community-ink',
+                        'inactiveClass' => 'border-transparent text-community-ink/70 hover:border-community-ochre/60 hover:text-community-ink',
+                    ])
+                    @can('review-tracks')
+                        <x-nav-link :href="route('admin.tracks.review.index')" :active="request()->routeIs('admin.tracks.*')">
+                            {{ __('Review tracks') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
-                @endif
             </div>
 
             <!-- Settings Dropdown only show settings if user is authenticated -->
@@ -75,15 +74,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('forum')" :active="request()->routeIs('forum')">
-                {{ __('Forum') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('lessons')" :active="request()->routeIs('lessons')">
-                {{ __('Lessons') }}
-            </x-responsive-nav-link>
+            @include('layouts.primary-links', [
+                'containerClass' => 'space-y-1',
+                'linkClass' => 'block w-full border-l-4 px-3 py-2 text-left text-base font-medium transition duration-150 ease-in-out',
+                'activeClass' => 'border-community-ochre bg-community-ochre/20 text-community-ink',
+                'inactiveClass' => 'border-transparent text-community-ink/70 hover:border-community-ochre/60 hover:bg-community-ochre/10 hover:text-community-ink',
+            ])
+            @can('review-tracks')
+                <x-responsive-nav-link :href="route('admin.tracks.review.index')" :active="request()->routeIs('admin.tracks.*')">
+                    {{ __('Review tracks') }}
+                </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

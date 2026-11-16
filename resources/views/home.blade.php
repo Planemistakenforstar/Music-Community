@@ -13,21 +13,22 @@
 
 <body class="antialiased bg-[#f1ecdf] font-mono text-[#182723]">
     <header class="border-b border-[#182723]/20">
-        <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
+        <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-3 px-5 py-5 sm:px-8">
             <a href="{{ url('/') }}" class="text-xs font-medium uppercase tracking-[0.12em] sm:text-sm">
                 <span class="mr-2 text-community-ochre-dark">✳</span>Piraeus Music Community
             </a>
-            <div class="flex items-center gap-4 text-[11px] uppercase tracking-wider sm:gap-7 sm:text-xs">
-                <a href="#tracks" class="transition hover:text-community-ochre-dark">Listen</a>
-                <a href="#lessons" class="hidden transition hover:text-community-ochre-dark sm:inline">Take part</a>
-                @auth
-                <a href="{{ route('dashboard') }}" class="border-b border-[#182723] pb-1 hover:text-community-ochre-dark">Dashboard</a>
-                @else
-                <a href="{{ route('login') }}" class="hidden transition hover:text-community-ochre-dark sm:inline">Log in</a>
-                <a href="{{ route('register') }}" class="bg-community-ochre px-3 py-2 text-community-ink transition hover:bg-community-ochre-hover">
+            <div class="flex flex-wrap items-center justify-end gap-x-3 gap-y-2 text-[9px] uppercase tracking-wider sm:gap-x-7 sm:text-xs">
+                @include('layouts.primary-links', [
+                'containerClass' => 'contents',
+                'linkClass' => 'whitespace-nowrap transition hover:text-community-ochre-dark',
+                'activeClass' => 'border-b border-[#182723] pb-1',
+                ])
+                @guest
+                <a href="{{ route('login') }}" class="hidden whitespace-nowrap transition hover:text-community-ochre-dark sm:inline">Log in</a>
+                <a href="{{ route('register') }}" class="whitespace-nowrap bg-community-ochre px-3 py-2 text-community-ink transition hover:bg-community-ochre-hover">
                     Join us
                 </a>
-                @endauth
+                @endguest
             </div>
         </nav>
     </header>
@@ -69,7 +70,7 @@
             <div class="flex items-end justify-between gap-4">
                 <div>
                     <p class="text-[10px] uppercase tracking-[0.2em] text-community-ochre-dark">Fresh from the neighborhood</p>
-                    <h2 class="font-display mt-3 text-4xl sm:text-5xl">Put a record on.</h2>
+                    <h2 class="font-display mt-3 text-4xl sm:text-5xl">Put a track on.</h2>
                 </div>
                 <a href="{{ route('tracks.index') }}" class="shrink-0 border-b border-[#182723]/50 pb-1 text-[10px] uppercase tracking-wider transition hover:border-community-ochre-dark hover:text-community-ochre-dark">
                     All tracks ↗
