@@ -2,10 +2,10 @@
     <div class="mb-6 text-center">
         <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg">
             <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-community-ochre text-community-ink">♪</span>
-            <span>Bandcamp Streamer</span>
+            <span>Join now.</span>
         </a>
         <h1>Create your account</h1>
-        <p>Start streaming Bandcamp artists in seconds.</p>
+        <p>Start exploring the community today.</p>
     </div>
 
     <form method="POST" action="{{ route('register') }}" class="space-y-4 text-[#fffaf0]">
