@@ -5,11 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-community-ink" />
+                    <a href="{{ url('/') }}" class="text-xs font-medium uppercase tracking-[0.12em] sm:text-sm">
+                        <span class="mr-2 text-community-ochre-dark">✳</span>Piraeus Music Community
                     </a>
                 </div>
 
+
+                @if(isset(Auth::user()->name) && Auth::user()->isArtist() === true)
                 <!-- Navigation Links -->
                 <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -22,9 +24,11 @@
                         {{ __('LESSONS') }}
                     </x-nav-link>
                 </div>
+                @endif
             </div>
 
-            <!-- Settings Dropdown -->
+            <!-- Settings Dropdown only show settings if user is authenticated -->
+            @if (isset(Auth::user()->name) && isset(Auth::user()->email))
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -38,12 +42,10 @@
                             </div>
                         </button>
                     </x-slot>
-
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -57,7 +59,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-
+            @endif
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-community-ink/70 hover:text-community-ink hover:bg-community-ochre/20 focus:outline-none focus:bg-community-ochre/20 focus:text-community-ink transition duration-150 ease-in-out">
@@ -85,21 +87,19 @@
         </div>
 
         <!-- Responsive Settings Options -->
+        @if (isset(Auth::user()->name) && isset(Auth::user()->email))
         <div class="pt-4 pb-1 border-t border-community-ink/20">
             <div class="px-4">
                 <div class="font-medium text-base text-community-ink">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-community-ink/70">{{ Auth::user()->email }}</div>
             </div>
-
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                         onclick="event.preventDefault();
                                         this.closest('form').submit();">
@@ -108,5 +108,7 @@
                 </form>
             </div>
         </div>
+        @endif
+
     </div>
 </nav>

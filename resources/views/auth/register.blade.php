@@ -1,14 +1,14 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg text-gray-900">
+        <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg">
             <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-community-ochre text-community-ink">♪</span>
             <span>Bandcamp Streamer</span>
         </a>
-        <h1 class="mt-4 text-xl font-bold text-gray-900">Create your account</h1>
-        <p class="mt-1 text-sm text-gray-600">Start streaming Bandcamp artists in seconds.</p>
+        <h1>Create your account</h1>
+        <p>Start streaming Bandcamp artists in seconds.</p>
     </div>
 
-    <form method="POST" action="{{ route('register') }}" class="space-y-4">
+    <form method="POST" action="{{ route('register') }}" class="space-y-4 text-[#fffaf0]">
         @csrf
 
         <!-- Name -->
@@ -29,9 +29,9 @@
         <div class="my-6">
             <x-input-label for="password" :value="__('Password')" />
             <x-text-input id="password" class="block mt-1 w-full"
-                          type="password"
-                          name="password"
-                          required autocomplete="new-password" />
+                type="password"
+                name="password"
+                required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
@@ -39,8 +39,8 @@
         <div class="my-6">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                          type="password"
-                          name="password_confirmation" required autocomplete="new-password" />
+                type="password"
+                name="password_confirmation" required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
@@ -52,7 +52,7 @@
         </div>
 
         <!-- Login link -->
-        <p class="text-center text-sm text-gray-600">
+        <p class="text-center text-sm">
             Already registered?
             <a href="{{ route('login') }}" class="font-semibold text-community-ochre-dark hover:text-community-ink">
                 Log in

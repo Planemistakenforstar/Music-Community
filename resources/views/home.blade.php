@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
     <link href="https://fonts.bunny.net/css?family=dm-mono:400,500|instrument-serif:400,400i&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="antialiased bg-[#f1ecdf] font-mono text-[#182723]">
     <header class="border-b border-[#182723]/20">
         <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
@@ -19,12 +21,12 @@
                 <a href="#tracks" class="transition hover:text-community-ochre-dark">Listen</a>
                 <a href="#lessons" class="hidden transition hover:text-community-ochre-dark sm:inline">Take part</a>
                 @auth
-                    <a href="{{ route('dashboard') }}" class="border-b border-[#182723] pb-1 hover:text-community-ochre-dark">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="border-b border-[#182723] pb-1 hover:text-community-ochre-dark">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="hidden transition hover:text-community-ochre-dark sm:inline">Log in</a>
-                    <a href="{{ route('register') }}" class="bg-community-ochre px-3 py-2 text-community-ink transition hover:bg-community-ochre-hover">
-                        Join us
-                    </a>
+                <a href="{{ route('login') }}" class="hidden transition hover:text-community-ochre-dark sm:inline">Log in</a>
+                <a href="{{ route('register') }}" class="bg-community-ochre px-3 py-2 text-community-ink transition hover:bg-community-ochre-hover">
+                    Join us
+                </a>
                 @endauth
             </div>
         </nav>
@@ -76,26 +78,26 @@
 
             <div class="mt-8 divide-y divide-[#182723]/20 border-y border-[#182723]/20">
                 @forelse ($tracks as $track)
-                    <article class="group flex items-center gap-4 py-4 sm:gap-6">
-                        <span class="w-7 shrink-0 text-xs text-[#8a8b7d]">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                        <div class="flex h-14 w-14 shrink-0 items-center justify-center bg-community-ochre text-xl text-[#182723] transition group-hover:rotate-3 group-hover:bg-community-ochre-hover" aria-hidden="true">♫</div>
-                        <div class="min-w-0 flex-1">
-                            <h3 class="font-display truncate text-lg leading-tight sm:text-2xl">
-                                <a href="{{ route('tracks.show', $track) }}" class="transition group-hover:text-community-ochre-dark">{{ $track->title }}</a>
-                            </h3>
-                            <p class="mt-1 truncate text-[10px] uppercase tracking-wider text-[#657168]">
-                                {{ $track->artist->name }}@if ($track->city) <span class="px-1">/</span>{{ $track->city }}@endif
-                            </p>
-                        </div>
-                        @if ($track->genre)
-                            <span class="hidden text-[9px] uppercase tracking-widest text-[#8a8b7d] sm:inline">{{ $track->genre }}</span>
-                        @endif
-                        <a href="{{ route('tracks.show', $track) }}" aria-label="Listen to {{ $track->title }}" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#182723]/30 text-sm transition hover:border-community-ochre hover:bg-community-ochre hover:text-[#182723]">▶</a>
-                    </article>
+                <article class="group flex items-center gap-4 py-4 sm:gap-6">
+                    <span class="w-7 shrink-0 text-xs text-[#8a8b7d]">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                    <div class="flex h-14 w-14 shrink-0 items-center justify-center bg-community-ochre text-xl text-[#182723] transition group-hover:rotate-3 group-hover:bg-community-ochre-hover" aria-hidden="true">♫</div>
+                    <div class="min-w-0 flex-1">
+                        <h3 class="font-display truncate text-lg leading-tight sm:text-2xl">
+                            <a href="{{ route('tracks.show', $track) }}" class="transition group-hover:text-community-ochre-dark">{{ $track->title }}</a>
+                        </h3>
+                        <p class="mt-1 truncate text-[10px] uppercase tracking-wider text-[#657168]">
+                            {{ $track->artist->name }}@if ($track->city) <span class="px-1">/</span>{{ $track->city }}@endif
+                        </p>
+                    </div>
+                    @if ($track->genre)
+                    <span class="hidden text-[9px] uppercase tracking-widest text-[#8a8b7d] sm:inline">{{ $track->genre }}</span>
+                    @endif
+                    <a href="{{ route('tracks.show', $track) }}" aria-label="Listen to {{ $track->title }}" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#182723]/30 text-sm transition hover:border-community-ochre hover:bg-community-ochre hover:text-[#182723]">▶</a>
+                </article>
                 @empty
-                    <p class="py-8 text-xs leading-6 text-[#657168]">
-                        No tracks have been shared yet. Be the first to add a sound to the neighborhood.
-                    </p>
+                <p class="py-8 text-xs leading-6 text-[#657168]">
+                    No tracks have been shared yet. Be the first to add a sound to the neighborhood.
+                </p>
                 @endforelse
             </div>
         </section>
@@ -110,9 +112,9 @@
                     Lessons, instrument swaps, gatherings, open jams—there’s room for all of it. We’re building a place for the scene to teach, trade, and meet.
                 </p>
                 @guest
-                    <a href="{{ route('register') }}" class="mt-5 inline-flex border-b border-[#182723] pb-1 text-[10px] uppercase tracking-[0.14em] transition hover:border-community-ochre-dark hover:text-community-ochre-dark">
-                        Get involved <span class="ml-2">↗</span>
-                    </a>
+                <a href="{{ route('register') }}" class="mt-5 inline-flex border-b border-[#182723] pb-1 text-[10px] uppercase tracking-[0.14em] transition hover:border-community-ochre-dark hover:text-community-ochre-dark">
+                    Get involved <span class="ml-2">↗</span>
+                </a>
                 @endguest
             </div>
         </section>
@@ -127,4 +129,5 @@
 
     <x-cookie-consent />
 </body>
+
 </html>

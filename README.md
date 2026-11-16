@@ -20,7 +20,7 @@ listings, announce gatherings, and organize open jams.
 ## Built with
 
 - Laravel 10
-- PHP 8.1+
+- PHP 8.5.12
 - Blade, Alpine.js, and Tailwind CSS
 
 ## Local development
@@ -39,7 +39,13 @@ npm run dev
 In another terminal, start the Laravel development server:
 
 ```powershell
-php artisan serve
+php artisan serve # serves the application at http://localhost:8000, redirects / to /home
+```
+
+php artisan migrate --path=database/migrations # migrates all migrations from the database/migrations folder
+php artisan db:seed # seeds the database with initial data
+php artisan make:component # makes components in app/View/Components and resources/views/components
+
 ```
 
 Configure the database and other services in `.env` before running the application.
@@ -47,3 +53,4 @@ Configure the database and other services in `.env` before running the applicati
 ## License
 
 This project uses the MIT license.
+```

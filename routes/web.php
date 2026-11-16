@@ -20,14 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/home')->name('home');
+
 Route::get('/home', function () {
     $tracks = Track::clearedForAirplay()
         ->with('artist')
         ->latest()
         ->take(6)
         ->get();
-
-    return view('welcome', compact('tracks'));
+    return view('home', compact('tracks'));
 })->name('home');
 
 Route::post('/cookie-consent', [CookieConsentController::class, 'store'])

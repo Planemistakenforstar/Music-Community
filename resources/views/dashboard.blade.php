@@ -19,8 +19,6 @@
             </div>
 
             {{-- My tracks --}}
-
-
             <div class="overflow-hidden rounded-lg bg-community-ink-panel font-mono text-[#fffaf0] shadow-sm">
                 <div class="p-6">
                     <h3 class="mb-4 text-lg font-semibold">My tracks</h3>

@@ -1,11 +1,10 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg text-gray-900">
+        <a href="/" class="inline-flex items-center gap-2 font-semibold text-lg">
             <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-community-ochre text-community-ink">♪</span>
-            <span>Bandcamp Streamer</span>
+            <span>Community member</span></span>
         </a>
-        <h1 class="mt-4 text-xl font-bold text-gray-900">Welcome back</h1>
-        <p class="mt-1 text-sm text-gray-600">Log in to keep listening.</p>
+        <h1>Welcome back</h1>
     </div>
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <form method="POST" action="{{ route('login') }}">
@@ -27,12 +26,12 @@
         <div class="flex items-center justify-between my-6">
             <x-input-label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
-                    class="rounded border-gray-300 text-community-ochre-dark shadow-sm focus:ring-community-ochre"
+                    class="rounded border-gray-300  shadow-sm focus:ring-community-ochre"
                     name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm">{{ __('Remember me') }}</span>
             </x-input-label>
             @if (Route::has('password.request'))
-            <a class="text-sm text-gray-600 underline hover:text-gray-900"
+            <a class="text-sm underline hover:text-gray-900"
                 href="{{ route('password.request') }}">
                 {{ __('Forgot password?') }}
             </a>
@@ -42,7 +41,7 @@
             {{ __('Log in') }}
         </x-primary-button>
         @if (Route::has('register'))
-        <p class="text-center text-sm text-gray-600 mt-3">
+        <p class="text-center text-sm mt-3">
             No account?
             <a href="{{ route('register') }}" class="font-semibold text-community-ochre-dark hover:text-community-ink">
                 Create one
