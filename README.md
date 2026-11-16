@@ -50,6 +50,17 @@ php artisan make:component # makes components in app/View/Components and resourc
 
 Configure the database and other services in `.env` before running the application.
 
+New accounts are created as artists and cannot grant themselves administrator access.
+Track uploads are stored as drafts until an administrator publishes them. Grant or revoke
+track-review access for an existing account from the command line:
+
+```powershell
+php artisan users:set-admin artist@example.com grant
+php artisan users:set-admin artist@example.com revoke
+```
+
+Administrators review submitted tracks at `/admin/tracks/review`.
+
 ## License
 
 This project uses the MIT license.

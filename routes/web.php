@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackController;
 use App\Http\Controllers\CookieConsentController;
+use App\Http\Controllers\Admin\TrackReviewController;
 use App\Http\Controllers\User\BandcampArtistController;
 use App\Http\Controllers\User\ForumController;
 use App\Http\Controllers\User\LessonsController;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/home')->name('home');
+Route::redirect('/', '/home')->name('welcome');
 
 Route::get('/home', function () {
     $tracks = Track::clearedForAirplay()
@@ -47,10 +48,18 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::get('/artist', [BandcampArtistController::class, 'show'])->name('dashboard.artist');
-    Route::get('/tracks',        [TrackController::class, 'index'])->name('dashboard.tracks.index');  // ← NEW
+    Route::get('/tracks',        [TrackController::class, 'dashboardIndex'])->name('dashboard.tracks.index');
     Route::get('/tracks/create', [TrackController::class, 'create'])->name('dashboard.tracks.create');
     Route::post('/tracks',       [TrackController::class, 'store'])->name('dashboard.tracks.store');
 });
+
+Route::middleware(['auth', 'can:review-tracks'])
+    ->prefix('admin/tracks')
+    ->name('admin.tracks.')
+    ->group(function () {
+        Route::get('/review', [TrackReviewController::class, 'index'])->name('review.index');
+        Route::post('/{track}/publish', [TrackReviewController::class, 'publish'])->name('publish');
+    });
 
 
 Route::middleware(['auth'])->prefix('forum')->group(function () {
